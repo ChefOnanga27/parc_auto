@@ -2,7 +2,13 @@
   "name": "parc_auto",
   "version": "1.0.0",
   "main": "app.js",
+  "type": "module",
   "scripts": {
+    "start": "nodemon app.js",
+    "generate": "npx prisma generate",
+    "seed": "npx prisma seed --preview-feature",
+    "dev": "npx ts-node-dev --respawn --transpile-only --ignore-watch 'node_modules' --respawn-options '--exec ts-node-dev' src/main.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
