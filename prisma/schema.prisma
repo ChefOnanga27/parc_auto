@@ -14,20 +14,18 @@ datasource db {
 }
 
 
-model user {
-  id       Int      @id @default(autoincrement()) 
-  email     String?      
-  mot_de_passe String?
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String?  @unique
+  motDePasse   String?
 }
 
-model vehicul {
-  id     Int    @id @default(autoincrement()) 
-  marque        String 
-  model          String 
-  annee      Int
-  couleur String 
-  numero_de_serie      String 
-  image         String 
-  
-
+model Vehicul {
+  id            Int     @id @default(autoincrement())
+  marque        String
+  modele        String
+  annee         Int
+  couleur       String
+  numeroDeSerie String  @unique
+  image         String
 }
