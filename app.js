@@ -1,28 +1,18 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
-import prisma from './DB/db.config.js';
+import vehiculeRouter from './routes/vehiculeRoutes.js'; // Routes pour les véhicules
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use('/api/vehicules', vehiculeRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Bienvenue sur l’API de gestion de parc automobile');
 });
 
-async function connect() {
-  try {
-    await prisma.$connect();
-    console.log('Connexion à la base de données réussie !');
-  } catch (error) {
-    console.error('Erreur de connexion à la base de données:', error);
-    process.exit(1); // Arrêter le serveur si la connexion échoue
-  }
-}
 
-// Connexion à la base de données
-connect();
 
 // Démarrer le serveur
 app.listen(port, () => {
