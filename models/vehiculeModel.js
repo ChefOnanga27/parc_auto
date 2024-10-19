@@ -1,4 +1,4 @@
-import prisma from '../config/database.js';
+import prisma from '../DB/db.config.js';
 
 export const getAllVehicles = async () => {
   try {
