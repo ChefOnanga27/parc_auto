@@ -1,10 +1,9 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
+import prisma from './DB/db.config.js';
 
 const app = express();
 const port = 3000;
-
-const prisma = new PrismaClient();
 
 app.use(express.json());
 
@@ -29,16 +28,3 @@ connect();
 app.listen(port, () => {
   console.log(`Le serveur démarre bien sur le port ${port}`);
 });
-
-// Fonction principale pour gérer les erreurs
-async function main() {
-  try {
-    await prisma.$connect(); // Connexion à la base de données
-  } catch (e) {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  }
-}
-
-main();
