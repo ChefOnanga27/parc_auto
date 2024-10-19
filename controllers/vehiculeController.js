@@ -16,7 +16,7 @@ export const addVehicle = async (req, res) => {
     const vehicle = await vehicleModel.createVehicle(req.body);
     res.status(201).json(vehicle);
   } catch (error) {
-    console.error('Erreur de l\'ajout du véhicule:', error);
+    console.error('Erreur de  lors de l\'ajout du véhicule:', error);
     res.status(500).json({ error: 'Erreur de l\'ajout du véhicule.' });
   }
 };
