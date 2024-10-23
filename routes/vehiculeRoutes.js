@@ -13,7 +13,7 @@ const vehiculeRouter = express.Router(); //
 
 vehiculeRouter.get('/vehicules', getVehicles);
 vehiculeRouter.post('/vehicule', addVehicle); // Vous pouvez ajouter une validation ici
-vehiculeRouter.put('vehicule/:id', editVehicle); // Validation de l'ID pourrait être utile ici
-vehiculeRouter.delete('/vehicule:id', removeVehicle); // Validation de l'ID
+vehiculeRouter.put('/vehicule/:id', editVehicle); // Validation de l'ID pourrait être utile ici
+vehiculeRouter.delete('/vehicule/:id', removeVehicle); // Validation de l'ID
 
 export default vehiculeRouter; // Exporter le routeur sous le nouveau nom

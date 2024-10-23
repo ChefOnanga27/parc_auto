@@ -1,20 +1,8 @@
-import app from './server.js';
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+import app from './server.js'; // Importez app depuis server.js
 
-
-
-
-
-
-
-const app = express()
-const port = 3000
-
-
-app.use(express.json())
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const port = 3000;
 
 const prisma = new PrismaClient();
 
@@ -27,9 +15,14 @@ async function connect() {
   }
 }
 
+
 connect();
 
+app.get('/api', (req, res) => {
+  res.send('bienvenu à moi');
+});
 
+// Lancer le serveur
 app.listen(port, () => {
-  console.log(`le serveur demarre bien sur ${port}`)
-})
+  console.log(`Le serveur démarre bien sur le port ${port}`);
+});
